@@ -4,13 +4,17 @@ using System.Collections.Specialized;
 using System.Security.Cryptography;
 using UnityEngine;
 
+
+
 public class TetrisBlock : MonoBehaviour
 {
     private float previousTime;
     public float fallTime = 0.8f;
     public static int height = 20;
     public static int width = 10;
-    private static Transform[,] grid = new Transform[width, height];
+    private static Transform[,] grid = new Transform[GameController.width, GameController.height];
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -81,7 +85,7 @@ public class TetrisBlock : MonoBehaviour
             int roundedX = Mathf.RoundToInt(children.transform.position.x);
             int roundedY = Mathf.RoundToInt(children.transform.position.y);
 
-            if(roundedX < 0 || roundedX >= width || roundedY < 0 || roundedY >= height)
+            if(roundedX < 0 || roundedX >= GameController.width || roundedY < 0 || roundedY >= GameController.height)
             {
                 return false;
             }
@@ -91,4 +95,7 @@ public class TetrisBlock : MonoBehaviour
         }
         return true;
     }
+
+
+
 }
