@@ -21,6 +21,20 @@ public class CombinationManager : MonoBehaviour
     public GameObject answer2;
     public GameObject answer3;
 
+    public List<answer> currentCombination;
+
+    public List<string> getCurrentCombination()
+    {
+        List<string> ret = new List<string>();
+
+        foreach (answer a in currentCombination)
+        {
+            ret.Add(a.Name);
+        }
+
+        return ret;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -79,7 +93,7 @@ public class CombinationManager : MonoBehaviour
     {
         // picks a random number
         int b = rnd.Next(AllCombinations.Count);
- 
+        currentCombination = AllCombinations[b];
         // setting the combination on canvas
         answer1.GetComponent<Text>().text = AllCombinations[b][0].Name;
         answer2.GetComponent<Text>().text = AllCombinations[b][1].Name;
