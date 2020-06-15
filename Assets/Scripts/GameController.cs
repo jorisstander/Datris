@@ -56,6 +56,9 @@ public class GameController : MonoBehaviour
             Vector3Int v3 = new Vector3Int
                 ((int)g.transform.position.x, (int)g.transform.position.y, (int)g.transform.position.z);
             blocks.Add(v3, g);
+        }
+        foreach (Vector3Int v3 in blocks.Keys)
+        {
             checkBlocks(v3);
         }
     }
@@ -81,10 +84,9 @@ public class GameController : MonoBehaviour
 
             int i = 0;
             List<GameObject> blocks = new List<GameObject>();
-            while (i < height)
+            while (i < 3)
             {
                 GameObject g = checkBlock(pos, v * i);
-                
 
                 if (g)
                 {
