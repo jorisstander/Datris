@@ -26,12 +26,15 @@ public class GameController : MonoBehaviour
     public Transform[,] objects;
     public Dictionary<Vector3Int, GameObject> blocks = new Dictionary<Vector3Int, GameObject>();
     public GameObject[] gameObjects;
+    public ScoreManager manager;
 
 
 
     // Start is called before the first frame update
     void Start()
     {
+        manager = GameObject.FindGameObjectWithTag("ScoreManager").GetComponent<ScoreManager>();
+        check();
 
     }
 
@@ -106,7 +109,8 @@ public class GameController : MonoBehaviour
                 Destroy(toRem[0]);
                 Destroy(toRem[1]);
                 Destroy(toRem[2]);
-                score += 3;
+                score += 100;
+                manager.Score(score);
                 combinationManager.CurrentCombination();
                 Debug.Log("Combination found!" + currentCombination[0] + "  " + currentCombination[1] + "  " + currentCombination[2]);
             }
