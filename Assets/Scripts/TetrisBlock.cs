@@ -13,13 +13,13 @@ public class TetrisBlock : MonoBehaviour
     public static int height = 20;
     public static int width = 10;
     private static Transform[,] grid = new Transform[GameController.width, GameController.height];
-
+    public GameController controller;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        controller = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
     }
 
     // Update is called once per frame
@@ -76,6 +76,7 @@ public class TetrisBlock : MonoBehaviour
 
             grid[roundedX, roundedY] = children;
         }
+        controller.check();
     }
     //checks if move is valid
     bool validMove()
