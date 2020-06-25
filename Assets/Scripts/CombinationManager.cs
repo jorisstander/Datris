@@ -21,10 +21,14 @@ public class CombinationManager : MonoBehaviour
     public GameObject answer2;
     public GameObject answer3;
 
-    public List<answer> currentCombination;
+    public List<answer> currentCombination = new List<answer>();
 
     public List<string> getCurrentCombination()
     {
+        if(currentCombination.Count == 0)
+        {
+            CurrentCombination();
+        }
         List<string> ret = new List<string>();
 
         foreach (answer a in currentCombination)
@@ -36,32 +40,60 @@ public class CombinationManager : MonoBehaviour
     }
 
     // Start is called before the first frame update
+
+
+    /* possible tiles (all lowercase) :
+     * -----------------
+     * modelyear
+     * carline
+     * salesgroup
+     * trimline
+     * model
+     * modeldata
+     * standardequipment
+     * technicalparameter
+     */
     void Start()
     {
 
         // adds answers to a combination
         
-        combination1.Add(new answer("integer", "integer"));
-        combination1.Add(new answer("string", "string"));
-        combination1.Add(new answer("boolean", "boolean"));
+        combination1.Add(new answer("modelyear", "modelyear"));
+        combination1.Add(new answer("carline", "carline"));
+        combination1.Add(new answer("salesgroup", "salegroup"));
 
         // adds answers to a combination
 
-        combination2.Add(new answer("integer", "integer"));
-        combination2.Add(new answer("integer", "integer"));
-        combination2.Add(new answer("integer", "integer"));
+        combination2.Add(new answer("trimline", "trimline"));
+        combination2.Add(new answer("model", "model"));
+        combination2.Add(new answer("modeldata", "modeldata"));
 
         // adds answers to a combination
 
-        combination3.Add(new answer("boolean", "boolean"));
-        combination3.Add(new answer("string", "string"));
-        combination3.Add(new answer("integer", "integer"));
+        combination3.Add(new answer("standardequipment", "standardequipment"));
+        combination3.Add(new answer("standardequipment", "standardequipment"));
+        combination3.Add(new answer("standardequipment", "standardequipment"));
+
+        List<answer> combo4 = new List<answer>();
+
+        combo4.Add(new answer("modeldata", "modeldata"));
+        combo4.Add(new answer("standardequipment", "standardequipment"));
+        combo4.Add(new answer("standardequipment", "standardequipment"));
+
+        List<answer> combo5 = new List<answer>();
+
+        combo5.Add(new answer("salegroup", "salesgroup"));
+        combo5.Add(new answer("trimline", "trimline"));
+        combo5.Add(new answer("model", "model"));
 
         // creates a list with all the combinations
-        
+
         AllCombinations.Add(combination1);
         AllCombinations.Add(combination2);
         AllCombinations.Add(combination3);
+        AllCombinations.Add(combo4);
+        AllCombinations.Add(combo5);
+
 
         //List<answer> CurrentCombination1 = AllCombinations[b];
 
@@ -92,7 +124,7 @@ public class CombinationManager : MonoBehaviour
     public void CurrentCombination()
     {
         // picks a random number
-        int b = rnd.Next(AllCombinations.Count);
+        int b = rnd.Next(0, AllCombinations.Count);
         currentCombination = AllCombinations[b];
         // setting the combination on canvas
         answer1.GetComponent<Text>().text = AllCombinations[b][0].Name;

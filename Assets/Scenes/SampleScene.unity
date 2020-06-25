@@ -422,8 +422,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Tetrominoes:
-  - {fileID: 3326196878351031603, guid: 0a5f176b2c93f5b49a733dad80d7e2fd, type: 3}
   - {fileID: 3191170589863730830, guid: cd8c50bc032e7684d97d85619a1086e0, type: 3}
+  - {fileID: 3326196878351031603, guid: 0a5f176b2c93f5b49a733dad80d7e2fd, type: 3}
+  - {fileID: 3191170589863730830, guid: e96eb4dfbf4024adfb764bb627ed5a36, type: 3}
+  - {fileID: 3326196878351031603, guid: 32a5fdc77b9094745816df13c56c395f, type: 3}
+  - {fileID: 4000699054621763690, guid: 8316f0d247e074d6abb9f7505102fdc6, type: 3}
+  - {fileID: 3191170589863730830, guid: ee63a6c02cbae45cbbbacc6cdeb690d6, type: 3}
+  - {fileID: 4000699054621763690, guid: bc7274bf51459423183d5be2d2f7c5a4, type: 3}
   - {fileID: 4000699054621763690, guid: 506fd3d19ac4a5546b5338dc7f13c27a, type: 3}
 --- !u!4 &188538273
 Transform:
@@ -451,11 +456,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0024d816ab414cbb87c386a58af0a14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  combinationManager: {fileID: 1115692100}
   currentCombination: []
   state: 0
   score: 0
   gameObjects: []
+  scoreManager: {fileID: 2131639033}
+  combinationManager: {fileID: 1115692100}
 --- !u!1 &215697700
 GameObject:
   m_ObjectHideFlags: 0
@@ -3724,7 +3730,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2072857130
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3927,3 +3933,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bee2ab10d40012847937ea4b6fa99f43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  text: {fileID: 2131639031}
